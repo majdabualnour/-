@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من فكرة لقصة - غزة</title>
+    <style>
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #e66100;
+            --light: #f6f5f4;
+            --dark: #241f31;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('palestine-bg.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        nav {
+            background-color: var(--primary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--secondary);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .mission-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .activity-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        .activity-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .testimonials {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            display: none;
+            padding: 1rem;
+        }
+        .active-testimonial {
+            display: block;
+        }
+        .team {
+            text-align: center;
+        }
+        .team-member {
+            display: inline-block;
+            margin: 1rem;
+            max-width: 250px;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        .social-links {
+            margin: 1rem 0;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .activities {
+                grid-template-columns: 1fr;
+            }
+        }
+
+         /* Modern Navbar Styles */
+         nav {
+             background-color: rgba(26, 95, 180, 0.95);
+             backdrop-filter: blur(10px);
+             padding: 0.8rem 2rem;
+             position: sticky;
+             top: 0;
+             z-index: 1000;
+             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+             transition: all 0.3s ease;
+         }
+         
+         nav.scrolled {
+             padding: 0.5rem 2rem;
+             background-color: rgba(26, 95, 180, 0.98);
+         }
+         
+         .nav-container {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+         
+         .logo-nav {
+             font-weight: 700;
+             font-size: 1.3rem;
+             color: white;
+             text-decoration: none;
+             display: flex;
+             align-items: center;
+             gap: 0.5rem;
+         }
+         
+         .logo-nav img {
+             height: 30px;
+         }
+         
+         .nav-links {
+             display: flex;
+             gap: 1.5rem;
+         }
+         
+         .nav-links a {
+             color: white;
+             text-decoration: none;
+             font-weight: 500;
+             padding: 0.5rem 0;
+             position: relative;
+             transition: all 0.3s ease;
+         }
+         
+         .nav-links a::after {
+             content: '';
+             position: absolute;
+             width: 0;
+             height: 2px;
+             bottom: 0;
+             right: 0;
+             background-color: #e66100;
+             transition: width 0.3s ease;
+         }
+         
+         .nav-links a:hover::after {
+             width: 100%;
+             left: 0;
+         }
+         
+         .nav-links a:hover {
+             color: #ffd9b8;
+         }
+         
+         .nav-cta {
+             background-color: #e66100;
+             color: white;
+             padding: 0.5rem 1.2rem;
+             border-radius: 4px;
+             font-weight: 600;
+             transition: all 0.3s ease;
+         }
+         
+         .nav-cta:hover {
+             background-color: #ff8c42;
+             transform: translateY(-2px);
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         
+         .hamburger {
+             display: none;
+             cursor: pointer;
+             background: none;
+             border: none;
+             color: white;
+             font-size: 1.5rem;
+         }
+         
+         @media (max-width: 768px) {
+             .hamburger {
+                 display: block;
+             }
+             
+             .nav-links {
+                 position: fixed;
+                 top: 70px;
+                 right: -100%;
+                 width: 80%;
+                 height: calc(100vh - 70px);
+                 background-color: rgba(26, 95, 180, 0.98);
+                 flex-direction: column;
+                 align-items: center;
+                 padding: 2rem 0;
+                 gap: 2rem;
+                 transition: right 0.3s ease;
+             }
+             
+             .nav-links.active {
+                 right: 0;
+             }
+             
+             .nav-cta {
+                 margin-top: 1rem;
+             }
+         }
+     </style>
+</head>
+<body>
+    <!-- <header>
+        <div class="logo">من فكرة لقصة</div>
+        <div class="tagline">تمكين جيل غزة المثقف تحت الحصار</div>
+    </header> -->
+    
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-nav">
+                <img src="data:image/jpeg;base64,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" alt="كتاب">
+                <span>قراءتنا</span>
+            </a>
+            
+            <button class="hamburger">☰</button>
+            
+            <div class="nav-links">
+                <a href="#about">عن المشروع</a>
+                <a href="#goals">الأهداف</a>
+                <a href="#activities">الأنشطة</a>
+                <a href="#team">فريق العمل</a>
+                <a href="#contact" class="nav-cta">انضم إلينا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rest of your website content here -->
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
+    <div class="container">
+        <section id="about" class="section">
+            <h2 class="section-title">عن المشروع</h2>
+            <div class="mission-box">
+                <p>من فكرة لقصة هو مبادرة تهدف إلى إخراج جيل مثقف قادر على القراءة الفعالة ونقد أسلوب الكاتب، مع تنمية قدرة المشاركين على الكتابة والإبداع. في ظل الظروف الصعبة التي يعيشها أطفال وشباب غزة، يأتي هذا المشروع ليكون ملاذاً ثقافياً ونفسياً يعوض عن الحرمان من التعليم الأكاديمي خلال فترة الحرب.</p>
+                <p>بالإضافة إلى الجانب التعليمي، يتضمن المشروع جلسات تفريغ انفعالي للتخفيف من آثار الحرب النفسية على المشاركين، وتحويل مشاعر الخوف والقلق إلى تفاؤل وأمل من خلال الأدب والكتابة الإبداعية.</p>
+            </div>
+        </section>
+        
+        <section id="goals" class="section">
+            <h2 class="section-title">أهداف المشروع</h2>
+            <div class="mission-box">
+                <ul>
+                    <li>تنمية مهارات القراءة الفعالة والنقد الأدبي لدى المشاركين</li>
+                    <li>تشجيع الإبداع الأدبي والكتابة التعبيرية</li>
+                    <li>التخفيف من الآثار النفسية للحرب عبر جلسات التفريغ الانفعالي</li>
+                    <li>تثقيف المشاركين في اختيار الكتب المناسبة وفنون الأدب المختلفة</li>
+                    <li>خلق مساحة آمنة للتعبير عن الذات وتبادل الخبرات</li>
+                    <li>توثيق تجارب الشباب الغزي خلال الحرب عبر الكتابة الإبداعية</li>
+                    <li>بناء شبكة من القراء والمبدعين الصغار في غزة</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="activities" class="section">
+            <h2 class="section-title">أنشطة المشروع</h2>
+            <div class="activities">
+                <div class="activity-card">
+                    <div class="activity-icon">📚</div>
+                    <h3>نوادي القراءة</h3>
+                    <p>جلسات أسبوعية لمناقشة الكتب المختارة، مع تحليل النصوص ونقد أسلوب الكاتب.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">✍️</div>
+                    <h3>ورش الكتابة الإبداعية</h3>
+                    <p>تدريب المشاركين على فنون الكتابة المختلفة وتشجيع المواهب الأدبية.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🧠</div>
+                    <h3>جلسات التفريغ الانفعالي</h3>
+                    <p>أنشطة نفسية تساعد المشاركين على التعبير عن مشاعرهم والتكيف مع ظروف الحرب.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🏆</div>
+                    <h3>مسابقات أدبية</h3>
+                    <p>مسابقات تحفيزية في القراءة والكتابة مع جوائز تشجيعية للمتميزين.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🎤</div>
+                    <h3>لقاءات مع أدباء</h3>
+                    <p>استضافة كتاب ومثقفين لإلهام المشاركين وتبادل الخبرات.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🌱</div>
+                    <h3>أنشطة ترفيهية تعليمية</h3>
+                    <p>زيارات ثقافية وأنشطة اجتماعية لتعزيز الروابط بين المشاركين.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team" class="section">
+            <h2 class="section-title">فريق المشروع</h2>
+            <div class="team">
+                <div class="team-member">
+                    <h3>حفصة عبدو أبو راس</h3>
+                    <p>مؤسسة ومديرة المشروع</p>
+                    <p>مبادرة مجتمعية ذات خبرة في التعليم تحت الظروف الصعبة، قامت العام الماضي بتنفيذ مشروع لتعليم اللغة الإنجليزية أثناء الحرب.</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>فريق المتطوعين</h3>
+                    <p>معلمون ومرشدون نفسيون</p>
+                    <p>فريق من المتخصصين في التربية والأدب والإرشاد النفسي يعملون على تنفيذ أنشطة المشروع.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <section class="testimonials">
+        <h2>كلمات المشاركين</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial active-testimonial">
+                <p>"هذا المشروع كان بمثابة منفذ لي خلال الحرب، تعلمت كيف أعبر عن مشاعري عبر الكتابة وأصبحت أقرأ بوعي أكبر."</p>
+                <p>- مشارك عمره 14 سنة</p>
+            </div>
+            <div class="testimonial">
+                <p>"جلسات التفريغ الانفعالي ساعدتني على تخطي خوفي من الأصوات العالية، والآن لدي أصدقاء جدد يشاركونني حب القراءة."</p>
+                <p>- مشاركة عمرها 12 سنة</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section id="contact" class="section">
+            <h2 class="section-title">شارك معنا</h2>
+            <div class="mission-box">
+                <p>نرحب بانضمام أطفال وشباب غزة من جميع الأعمار إلى مشروعنا. كما نفتح الباب أمام المتطوعين والجهات الراغبة في دعم هذا المشروع الحيوي.</p>
+                <p>للتسجيل أو الاستفسار:</p>
+                <ul>
+                    <li>هاتف: +972 594032818</li>
+                    <li>بريد إلكتروني: hafsaaboras@gmail.com</li>
+                    <li>مواقع التواصل الاجتماعي: فيسبوك، تويتر، إنستغرام</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="logo">من فكرة لقصة</div>
+        <p>تمكين العقول تحت الحصار - غزة 2024</p>
+        <div class="social-links">
+            <a href="#">📱</a>
+            <a href="#">💻</a>
+            <a href="#">📧</a>
+        </div>
+        <p>جميع الحقوق محفوظة © 2024</p>
+    </footer>
+
+    <script>
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active-testimonial');
+            });
+            testimonials[index].classList.add('active-testimonial');
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Change testimonial every 5 seconds
+        setInterval(nextTestimonial, 5000);
+    </script>
+</body>
+</html>
